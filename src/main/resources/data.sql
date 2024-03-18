@@ -124,7 +124,9 @@ insert into article (title, content, hashtag, created_by, modified_by, created_a
 insert into article (title, content, hashtag, created_by, modified_by, created_at, modified_at) values ('In hac habitasse platea dictumst.', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.', null, 'Giacinta', 'Welsh', '2023-11-30 22:00:49', '2023-09-08 17:06:52');
 
 
-insert into article_comment (article_id, content, created_at, modified_at, created_by, modified_by) values (FLOOR(RAND() * 123) + 1, 'Phasellus in felis. Donec semper sapien a libero. Nam dui.', '2023-07-04 03:44:39', '2023-12-06 17:39:58', 'Chad', 'Melamie');
+insert into article_comment (article_id, content, created_at, modified_at, created_by, modified_by) values (FLOOR(RAND() * 123) + 1, 'Phasellus in felis. Donec semper sapien a eulyoung. Nam dui.', '2023-07-04 03:44:39', '2023-12-06 17:39:58', 'Chad', 'Melamie');
+insert into article_comment (article_id, content, created_at, modified_at, created_by, modified_by) values (FLOOR(RAND() * 123) + 1, 'Phasellus in felis. Donec semper sapien a halo. Nam dui.', '2023-07-04 03:44:39', '2023-12-06 17:39:58', 'Chad', 'Melamie');
+insert into article_comment (article_id, content, created_at, modified_at, created_by, modified_by) values (FLOOR(RAND() * 123) + 1, 'Phasellus in felis. Donec semper sapien a jung. Nam dui.', '2023-07-04 03:44:39', '2023-12-06 17:39:58', 'Chad', 'Melamie');
 
 
 
