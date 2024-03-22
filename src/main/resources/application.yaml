@@ -8,7 +8,7 @@ management:
 
 logging:
   level:
-    com.board.projectboard: debug
+    com.board.project-board: debug
     org.springframework.web.servlet: debug
     org.hibernate.type.descriptor.sql.BasicBinder: trace
 

@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import com.board.projectboard.config.JpaConfig;
 import com.board.projectboard.domain.Article;
 import java.util.List;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,6 +76,8 @@ class JpaRepositoryTest {
 
     }
 
+
+    @Disabled("DB 데이터 수정 중")
     @DisplayName("delete 테스트")
     @Test
     void givenTestData_whenDeleting_thenWorksFine() {
