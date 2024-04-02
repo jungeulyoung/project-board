@@ -42,8 +42,6 @@ public class ArticleService {
             case NICKNAME ->
                     articleRepository.findByHashtag("#" + searchKeyword, pageable).map(ArticleDto::from);
         };
-
-
     }
 
     @Transactional(readOnly = true)
