@@ -26,13 +26,12 @@ public class Article extends AuditingFields {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Setter
-    @JoinColumn(name = "userId")
-    @ManyToOne(optional = false)
-    private UserAccount userAccount; // 유저 정보 (ID)
+    @Setter @ManyToOne(optional = false) private UserAccount userAccount; // 유저 정보 (ID)
 
     @Setter @Column(nullable = false) private String title; // 제목
     @Setter @Column(nullable = false, length = 10000) private String content; // 본문
+
+    @Setter private String hashtag;
 
     @Exclude
     @JoinTable(
@@ -48,9 +47,6 @@ public class Article extends AuditingFields {
     @OrderBy("createdAt DESC")
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
-    @Getter
-    @Setter
-    private String hashtag;
 
 
     protected Article() {}
