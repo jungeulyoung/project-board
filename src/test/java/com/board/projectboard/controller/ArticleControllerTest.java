@@ -12,7 +12,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import com.board.projectboard.config.SecurityConfig;
-import com.board.projectboard.domain.type.SearchType;
+import com.board.projectboard.domain.constant.SearchType;
 import com.board.projectboard.dto.ArticleWithCommentsDto;
 import com.board.projectboard.dto.HashtagDto;
 import com.board.projectboard.dto.UserAccountDto;
@@ -35,8 +35,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @DisplayName("View 컨트롤러 - 게시글")
 @Import(SecurityConfig.class)
