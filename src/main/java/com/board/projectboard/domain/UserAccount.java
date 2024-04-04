@@ -1,17 +1,15 @@
 package com.board.projectboard.domain;
 
-import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Getter
-@ToString
+@ToString(callSuper = true)
 @Table(indexes = {
-        @Index(columnList = "userId"),
         @Index(columnList = "email", unique = true),
         @Index(columnList = "createdAt"),
         @Index(columnList = "createdBy")
@@ -19,10 +17,8 @@ import java.util.Objects;
 @Entity
 public class UserAccount extends AuditingFields {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Setter @Column(nullable = false, length = 50) private String userId;
+    @Column(length = 50)
+    private String userId;
 
     @Setter @Column(nullable = false) private String userPassword;
 
@@ -39,6 +35,8 @@ public class UserAccount extends AuditingFields {
         this.email = email;
         this.nickname = nickname;
         this.memo = memo;
+        this.createdBy = createdBy;
+        this.modifiedBy = createdBy;
     }
 
     public static UserAccount of(String userId, String userPassword, String email, String nickname, String memo) {

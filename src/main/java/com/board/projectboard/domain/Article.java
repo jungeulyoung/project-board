@@ -1,16 +1,14 @@
 package com.board.projectboard.domain;
 
-import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
-import lombok.ToString.Exclude;
 
 @Getter
 @ToString(callSuper = true)
@@ -26,14 +24,15 @@ public class Article extends AuditingFields {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Setter @ManyToOne(optional = false) private UserAccount userAccount; // 유저 정보 (ID)
+    @Setter
+    @JoinColumn(name = "userId")
+    @ManyToOne(optional = false)
+    private UserAccount userAccount; // 유저 정보 (ID)
 
     @Setter @Column(nullable = false) private String title; // 제목
     @Setter @Column(nullable = false, length = 10000) private String content; // 본문
 
-    @Setter private String hashtag;
-
-    @Exclude
+    @ToString.Exclude
     @JoinTable(
             name = "article_hashtag",
             joinColumns = @JoinColumn(name = "articleId"),
@@ -43,7 +42,7 @@ public class Article extends AuditingFields {
     private Set<Hashtag> hashtags = new LinkedHashSet<>();
 
 
-    @Exclude
+    @ToString.Exclude
     @OrderBy("createdAt DESC")
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
@@ -69,6 +68,9 @@ public class Article extends AuditingFields {
         this.getHashtags().addAll(hashtags);
     }
 
+    public void clearHashtags() {
+        this.getHashtags().clear();
+    }
 
     @Override
     public boolean equals(Object o) {
